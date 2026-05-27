@@ -1,0 +1,8 @@
+
+State Machine - |raiz|current_state
+Name current_state.PRONTO current_state.PROCESSA_0 current_state.DECIDE current_state.INICIALIZA current_state.ESPERA 
+current_state.ESPERA 0 0 0 0 0 
+current_state.INICIALIZA 0 0 0 1 1 
+current_state.DECIDE 0 0 1 0 1 
+current_state.PROCESSA_0 0 1 0 0 1 
+current_state.PRONTO 1 0 0 0 1 

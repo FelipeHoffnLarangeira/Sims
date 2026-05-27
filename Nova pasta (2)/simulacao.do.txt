@@ -1,0 +1,30 @@
+# Cria a pasta de compilação
+vlib work
+vmap work work
+
+# Compila os arquivos fornecidos pelo professor (com as correções)
+vcom -work work raiz.vhd
+vcom -work work raiz_TB.vhd
+
+# Inicia a simulação
+vsim -voptargs="+acc" work.raiz_TB_vhd
+
+# Configuração visual das ondas
+if [file exists wave.do] {
+    do wave.do
+} else {
+    add wave -divider "Controle"
+    add wave /raiz_TB_vhd/clk
+    add wave /raiz_TB_vhd/rst
+    add wave /raiz_TB_vhd/start
+    add wave /raiz_TB_vhd/ready
+    add wave -divider "Dados"
+    add wave -radix unsigned /raiz_TB_vhd/input
+    add wave -radix unsigned /raiz_TB_vhd/sqrt
+    add wave -divider "FSM Interna"
+    add wave /raiz_TB_vhd/uut/current_state
+}
+
+# Roda todo o teste
+run -all
+wave zoom full
